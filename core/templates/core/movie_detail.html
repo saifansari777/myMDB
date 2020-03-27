@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}	{{ object.title }} - {{ block.super}} {% endblock title %}
+
+
+{% block body %}
+<div class="jumbotron">
+	<img src="{{ object.poster }}" alt= "{{ object.title. }}" style = width: 100vw;>
+  <h1 class="display-4">{{ object.title}}</h1>
+  <p class="lead">{{ object.plot }}</p>
+  <p align="right">{{ object.runtime }} {{ object.poster.url }}</p>
+  {% if object.rating %}
+  <span class="btn btn btn-primary" align ="right"><h3>{{ object.get_rating_display }}</h3> </span>
+  {% else %}
+  <span class="btn btn btn-danger" align ="right"><h3>{{ object.get_rating_display }}</h3> </span>
+  {% endif %}
+  <hr class="my-4">
+  
+</div>
+{% endblock body %}
